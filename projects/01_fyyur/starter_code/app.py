@@ -14,9 +14,10 @@ from sqlalchemy import true
 from forms import * 
 from flask_wtf.csrf import CsrfProtect 
 from datetime import datetime 
-from jinja2.utils import markupsafe 
-from markupsafe import Markup
-markupsafe.Markup() 
+#from jinja2.utils import markupsafe 
+#from markupsafe import Markup 
+#markupsafe.Markup() 
+#Markup()
 
 
 app = Flask(__name__)
