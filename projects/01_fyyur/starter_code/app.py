@@ -220,8 +220,8 @@ def create_venue_submission():
   
   #validate form
   if not form.validate():
-    for fieldName, errorMessages in form.errors.items():
-      show_form_errors(fieldName,errorMessages)
+    #for fieldName, errorMessages in form.errors.items():
+      #show_form_errors(fieldName,errorMessages)
     return redirect(url_for('create_venue_form'))
   #data
   name = request.form('name')
@@ -250,7 +250,7 @@ def create_venue_submission():
   finally:
     db.session.close()  
   if error:
-    abort(404)
+    #abort(404)
     flash('An error occured. Venue' + name +' is not available')
   if not error:
     flash('Venue'+ name+ ' discovered')
@@ -279,7 +279,7 @@ def delete_venue(venue_id):
     db.session.close()
   
   if error:
-    abort(404)
+    #abort(404)
     flash('Venue can not be deleted')
   if not error:
     flash('Venue was deleted')
@@ -407,7 +407,7 @@ def edit_artist_submission(artist_id):
   finally:
     db.session.close()
   if error:
-    abort(400)
+    #abort(400)
     flash('Artist'+name+' coud not be updated')
   if not error:
     flash('Artist' + name + 'updated successfully')
@@ -473,7 +473,7 @@ def edit_venue_submission(venue_id):
   finally:
       db.session.close()
   if error:
-    abort(400)
+    #abort(400)
     flash('Venue ' + name + ' could not be updated')
   if not error:
     flash('Venue ' + name + ' has been updated')
@@ -494,7 +494,7 @@ def create_artist_submission():
   form = ArtistForm()
   if not form.validate():
     for fieldName, errorMessages in form.errors.items():
-      show_form_errors(fieldName,errorMessages)
+      #show_form_errors(fieldName,errorMessages)
       return redirect(url_for('create_artist_form'))
   name = request.form['name']
   city = request.form['city']
@@ -523,7 +523,7 @@ def create_artist_submission():
     db.session.close()
   
   if error:
-    abort(400)
+    # abort(400)
     flash('Artist ' + name + ' could not be listed')
   if not error:
     flash('Artist ' + name + ' has been updated')
@@ -580,7 +580,7 @@ def create_show_submission():
     db.session.close()
       
   if error:
-    abort(400)
+    #abort(400)
     flash('Show could not be listed.')
     
   if not error:
